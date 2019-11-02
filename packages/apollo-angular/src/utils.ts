@@ -8,6 +8,11 @@ import {
   SchedulerAction,
   observable,
 } from 'rxjs';
+import {
+  ApolloQueryResult,
+  ObservableQuery,
+  Observable as AObservable,
+} from '@apollo/client/core';
 
 export function fromPromise<T>(promiseFn: () => Promise<T>): Observable<T> {
   return new Observable<T>(subscriber => {
@@ -48,9 +53,15 @@ export class ZoneScheduler implements SchedulerLike {
 // XXX: Apollo's QueryObservable is not compatible with RxJS
 // TODO: remove it in one of future releases
 // https://github.com/ReactiveX/rxjs/blob/9fb0ce9e09c865920cf37915cc675e3b3a75050b/src/internal/util/subscribeTo.ts#L32
-export function fixObservable<T>(obs: T): T {
+export function fixObservable<T>(
+  obs: ObservableQuery<T>,
+): Observable<ApolloQueryResult<T>>;
+export function fixObservable<T>(obs: AObservable<T>): Observable<T>;
+export function fixObservable<T>(
+  obs: AObservable<T> | ObservableQuery<T>,
+): Observable<ApolloQueryResult<T>> | Observable<T> {
   (obs as any)[observable] = () => obs;
-  return obs;
+  return obs as any;
 }
 
 export function wrapWithZone<T>(

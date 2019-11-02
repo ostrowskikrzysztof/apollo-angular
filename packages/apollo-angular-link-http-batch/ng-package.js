@@ -8,7 +8,6 @@ module.exports = {
     umdModuleIds,
   },
   whitelistedNonPeerDependencies: [
-    'apollo-link',
     'apollo-link-batch',
     'apollo-angular-link-http-common',
   ],

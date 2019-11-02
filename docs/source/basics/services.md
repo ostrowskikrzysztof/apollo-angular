@@ -27,7 +27,7 @@ You create a service and extend it with a `Query` class from `apollo-angular`. O
 ```ts
 import {Injectable} from '@angular/core';
 import {Query} from 'apollo-angular';
-import gql from 'graphql-tag';
+import {gql} from '@apollo/client/common';
 
 export interface Post {
   id: string;
@@ -135,7 +135,7 @@ You create a service and extend it with a `Mutation` class from `apollo-angular`
 ```ts
 import {Injectable} from '@angular/core';
 import {Mutation} from 'apollo-angular';
-import gql from 'graphql-tag';
+import {gql} from '@apollo/client/common';
 
 @Injectable({
   providedIn: 'root',
@@ -199,7 +199,7 @@ You create a service and extend it with a `Subscription` class from `apollo-angu
 ```ts
 import {Injectable} from '@angular/core';
 import {Subscription} from 'apollo-angular';
-import gql from 'graphql-tag';
+import {gql} from '@apollo/client/common';
 
 @Injectable({
   providedIn: 'root',

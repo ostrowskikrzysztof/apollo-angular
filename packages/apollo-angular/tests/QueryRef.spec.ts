@@ -1,14 +1,15 @@
 import './_setup';
 
 import {NgZone} from '@angular/core';
-import {ObservableQuery} from 'apollo-client';
 import {Subject} from 'rxjs';
 import {map, takeUntil} from 'rxjs/operators';
-import {ApolloLink} from 'apollo-link';
-import {InMemoryCache} from 'apollo-cache-inmemory';
-
-import ApolloClient from 'apollo-client';
-import gql from 'graphql-tag';
+import {
+  gql,
+  ApolloClient,
+  ObservableQuery,
+  InMemoryCache,
+  ApolloLink,
+} from '@apollo/client/core';
 
 import {QueryRef} from '../src/QueryRef';
 import {mockSingleLink} from './mocks/mockLinks';
@@ -160,16 +161,6 @@ describe('QueryRef', () => {
     obsQuery.result = mockCallback.mockReturnValue('expected');
 
     const result = queryRef.result();
-
-    expect(result).toBe('expected');
-    expect(mockCallback.mock.calls.length).toBe(1);
-  });
-
-  test('should be able to call currentResult()', () => {
-    const mockCallback = jest.fn();
-    obsQuery.currentResult = mockCallback.mockReturnValue('expected');
-
-    const result = queryRef.currentResult();
 
     expect(result).toBe('expected');
     expect(mockCallback.mock.calls.length).toBe(1);
@@ -330,16 +321,17 @@ describe('QueryRef', () => {
   test('should unsubscribe', done => {
     const obs = queryRef.valueChanges;
     const id = queryRef.queryId;
+    const queryManager: any = (client as any).queryManager;
 
     const sub = obs.subscribe(() => {
       //
     });
 
-    expect(client.queryManager.queryStore.get(id)).toBeDefined();
+    expect(queryManager.queryStore.get(id)).toBeDefined();
 
     setTimeout(() => {
       sub.unsubscribe();
-      expect(client.queryManager.queryStore.get(id)).toBeUndefined();
+      expect(queryManager.queryStore.get(id)).toBeUndefined();
       done();
     });
   });
@@ -348,16 +340,17 @@ describe('QueryRef', () => {
     const gate = new Subject<void>();
     const obs = queryRef.valueChanges.pipe(takeUntil(gate));
     const id = queryRef.queryId;
+    const queryManager: any = (client as any).queryManager;
 
     obs.subscribe(() => {
       //
     });
 
-    expect(client.queryManager.queryStore.get(id)).toBeDefined();
+    expect(queryManager.queryStore.get(id)).toBeDefined();
 
     gate.next();
 
-    expect(client.queryManager.queryStore.get(id)).toBeUndefined();
+    expect(queryManager.queryStore.get(id)).toBeUndefined();
     done();
   });
 });

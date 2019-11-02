@@ -23,7 +23,7 @@ There are two principal uses for fragments in Apollo:
 - Sharing fields between multiple queries, mutations or subscriptions.
 - Breaking your queries up to allow you to co-locate field access with the places they are used.
 
-In this document we'll outline patterns to do both; we'll also make use of utilities in the [`graphql-anywhere`](https://github.com/apollographql/apollo-client) and [`graphql-tag`](https://github.com/apollographql/graphql-tag) packages which aim to help us, especially with the second problem.
+In this document we'll outline patterns to do both; we'll also make use of utilities in the [`graphql-anywhere`](https://github.com/apollographql/apollo-client) and [`@apollo/client`](https://github.com/apollographql/graphql-tag) packages which aim to help us, especially with the second problem.
 
 ## Reusing Fragments
 
@@ -32,7 +32,7 @@ The most straightforward use of fragments is to reuse parts of queries (or mutat
 To do so, we can simply share a fragment describing the fields we need for a comment:
 
 ```js
-import gql from 'graphql-tag';
+import {gql} from '@apollo/client/common';
 
 CommentsPage.fragments = {
   comment: gql`

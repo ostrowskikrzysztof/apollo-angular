@@ -1,5 +1,4 @@
-import {execute, ApolloLink} from 'apollo-link';
-import gql from 'graphql-tag';
+import {gql, execute, ApolloLink} from '@apollo/client/core';
 
 import {buildOperationForLink} from './utils';
 import {ApolloTestingBackend} from '../src/backend';
@@ -23,7 +22,9 @@ describe('TestOperation', () => {
     const operation = buildOperationForLink(query, {});
 
     let response: any;
-    execute(link, operation as any).subscribe(result => (response = result));
+    execute(link, operation as any).subscribe(
+      (result: any) => (response = result),
+    );
 
     mock.expectOne(query).flush(null);
 

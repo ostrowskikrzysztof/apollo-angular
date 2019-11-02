@@ -22,10 +22,8 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import {BrowserModule} from '@angular/platform-browser';
-import {execute} from 'apollo-link';
+import {gql, execute} from '@apollo/client/core';
 import {filter, first} from 'rxjs/operators';
-
-import gql from 'graphql-tag';
 
 import {HttpLink} from '../src/HttpLink';
 
@@ -69,7 +67,7 @@ describe('integration', () => {
       public ngOnInit() {
         execute(this.httpLink.create({uri: 'graphql', method: 'GET'}), {
           query,
-        }).subscribe(result => {
+        }).subscribe((result: any) => {
           this.text = result.data.website.status;
         });
 

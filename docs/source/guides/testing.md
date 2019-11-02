@@ -16,7 +16,7 @@ Consider the component below, which makes a basic query, and displays its result
 ```js
 import {Component, OnInit, Input} from '@angular/core';
 import {Apollo} from 'apollo-angular';
-import gql from 'graphql-tag';
+import {gql} from '@apollo/client/common';
 import { Observable } from 'rxjs';
 import { shareReplay, pluck} from 'rxjs/operators';
 

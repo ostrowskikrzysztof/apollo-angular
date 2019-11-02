@@ -1,7 +1,7 @@
 {
   "name": "apollo-angular",
   "description": "Use your GraphQL data in your Angular app, with the Apollo Client",
-  "version": "1.8.0",
+  "version": "2.0.0-alpha.0",
   "author": "Kamil Kisiela <kamil.kisiela@gmail.com> (http://github.com/kamilkisiela/)",
   "license": "MIT",
   "sideEffects": false,
@@ -26,17 +26,13 @@
     "test:testing": "jest --config testing/jest.config.js",
     "test:schematics": "jest --config schematics/jest.config.js",
     "prebuild": "rm -rf build/",
-    "deploy": "yarn build && npm publish build"
+    "deploy": "yarn build && npm publish build --registry http://localhost:4873"
   },
   "peerDependencies": {
-    "@angular/core": "^6.1.0 || ^7.0.0 || ^8.0.0",
-    "apollo-client": "^2.3.4",
-    "apollo-link": "^1.0.0",
+    "@angular/core": "^6.1.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
+    "@apollo/client": "^3.0.0-beta.12",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.20 || ~0.9.0 || ~0.10.0"
-  },
-  "dependencies": {
-    "semver": "^6.0.0"
   },
   "devDependencies": {
     "@angular-devkit/core": "8.3.18",
@@ -47,24 +43,32 @@
     "@angular/core": "8.2.13",
     "@angular/platform-browser": "8.2.13",
     "@angular/platform-browser-dynamic": "8.2.13",
+    "@apollo/client": "3.0.0-beta.12",
     "@schematics/angular": "8.3.18",
-    "@types/graphql": "14.5.0",
     "@types/jest": "24.0.23",
     "@types/node": "12.12.7",
     "@types/semver": "6.2.0",
-    "apollo-cache-inmemory": "1.6.3",
-    "apollo-client": "2.6.4",
-    "apollo-link": "1.2.13",
     "cpx": "1.5.0",
     "graphql": "14.5.8",
-    "graphql-tag": "2.10.1",
     "jest": "24.9.0",
     "jest-zone-patch": "0.0.10",
     "ng-packagr": "5.7.1",
+    "react": "16.11.0",
     "rxjs": "6.5.3",
     "ts-jest": "24.1.0",
     "typescript": "3.5.3",
     "zone.js": "0.10.2"
   },
-  "schematics": "./schematics/collection.json"
+  "schematics": "./schematics/collection.json",
+  "ng-update": {
+    "requirements": {},
+    "migrations": "./schematics/migrations.json",
+    "packageGroupName": "apollo-angular",
+    "packageGroup": [
+      "apollo-angular",
+      "@apollo/client",
+      "apollo-angular-link-http",
+      "graphql"
+    ]
+  }
 }

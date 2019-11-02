@@ -25,7 +25,7 @@ the `Profile` component:
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client/common';
 
 // We use the gql tag to parse our query string into a query document
 const CurrentUserForProfile = gql`
@@ -176,10 +176,10 @@ This is why we created `SelectPipe`. The only argument it receives is the name
 of the property you want to get from `data`.
 
 ```ts
-import {Component, OnInit} from '@angular/core';
-import {Apollo} from 'apollo-angular';
-import {Observable} from 'rxjs';
-import gql from 'graphql-tag';
+import { Component, OnInit } from '@angular/core';
+import { Apollo } from 'apollo-angular';
+import { Observable } from 'rxjs';
+import { gql } from '@apollo/client/common';
 
 const FeedQuery = gql`
   query Feed {
@@ -237,7 +237,7 @@ import {Component, OnInit} from '@angular/core';
 import {Apollo} from 'apollo-angular';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import gql from 'graphql-tag';
+import {gql} from '@apollo/client/common';
 
 const FeedQuery = gql`
   query Feed {

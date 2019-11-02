@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
+import {FetchResult} from '@apollo/client/core';
 import {DocumentNode} from 'graphql';
 import {Observable} from 'rxjs';
-import {FetchResult} from 'apollo-link';
 
 import {Apollo} from './Apollo';
 import {MutationOptionsAlone, R} from './types';

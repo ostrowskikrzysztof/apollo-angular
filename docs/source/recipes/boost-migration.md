@@ -44,27 +44,22 @@ To create a basic client with the same defaults as Apollo Angular Boost, first y
 npm install --save \
 apollo-angular \
 apollo-angular-link-http \
-apollo-client \
-apollo-cache-inmemory \
-graphql-tag \
+@apollo/client \
 graphql
 ```
 
 - apollo-client - core functionality for Apollo ecosystem
 - apollo-angular - Angular integration
-- apollo-cache-inmemory - basic, most popular cache
 - apollo-angular-link-http - allows to make requests through Angular's HttpClient
-- graphql-tag - a small utility to parse strings into GraphQL Documents
 - graphql - base functionality for everything
 
 To complete the process, you'll need to manually attach your `cache` and `link` to the client:
 
 ```ts
 import {ApolloModule, Apollo} from 'apollo-angular';
-import {InMemoryCache} from 'apollo-cache-inmemory';
+import {InMemoryCache, ApolloLink} from '@apollo/client/common';
 import {HttpLinkModule, HttpLink} from 'apollo-angular-link-http';
 import {onError} from 'apollo-link-error';
-import {ApolloLink} from 'apollo-link';
 
 @NgModule({
   imports: [
@@ -170,7 +165,7 @@ Similar as in clientState, you use the config in `apollo-link-error`.
 
 ### cacheRedirects
 
-Whatever you have here, just pass it to `apollo-cache-inmemory`.
+Whatever you have here, just pass it to `@apollo/client/common`.
 
 ## Summary
 

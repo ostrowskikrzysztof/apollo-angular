@@ -1,6 +1,10 @@
-import {ApolloLink, execute, Observable, Operation} from 'apollo-link';
-
-import gql from 'graphql-tag';
+import {
+  gql,
+  ApolloLink,
+  execute,
+  Observable,
+  Operation,
+} from '@apollo/client/core';
 
 import {createPersistedQueryLink} from '../src';
 
@@ -27,7 +31,7 @@ class MockLink extends ApolloLink {
 
   // imitate apollo-angular-link-http
   public request(operation: Operation) {
-    return new Observable(observer => {
+    return new Observable((observer: any) => {
       const request: any = {};
 
       if (operation.getContext().includeQuery) {

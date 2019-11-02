@@ -48,8 +48,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, Apollo, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloLink } from 'apollo-link';
+import { InMemoryCache, ApolloLink } from '@apollo/client/common';
 
 const uri = '/graphql';
 
@@ -133,7 +132,7 @@ Another option is to reload the page, which will have a similar effect.
 
 ```ts
 import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client/common';
 
 const PROFILE_QUERY = gql`
   query CurrentUserForLayout {

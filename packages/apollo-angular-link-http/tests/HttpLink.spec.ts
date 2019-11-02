@@ -1,17 +1,15 @@
 import {setupAngular} from './_setup';
 
-import gql from 'graphql-tag';
-
 import {TestBed, inject, async} from '@angular/core/testing';
 import {HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import {execute, ApolloLink} from 'apollo-link';
+import {execute, ApolloLink, gql} from '@apollo/client/core';
+import {InMemoryCache} from '@apollo/client/core';
 import {ApolloModule, Apollo} from 'apollo-angular';
 import {mergeMap} from 'rxjs/operators';
-import {InMemoryCache} from 'apollo-cache-inmemory';
 
 import {HttpLink} from '../src/HttpLink';
 
@@ -524,7 +522,7 @@ describe('HttpLink', () => {
 
   test('should set reponse in context', (done: jest.DoneCallback) => {
     const afterware = new ApolloLink((op, forward) => {
-      return forward(op).map(response => {
+      return forward(op).map((response: any) => {
         const context = op.getContext();
 
         expect(context.response).toBeDefined();

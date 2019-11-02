@@ -41,7 +41,7 @@ Using `Apollo` it's easy to call mutation. You can simply use `mutate` method.
 import { Component } from '@angular/core';
 
 import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client/common';
 
 const submitRepository = gql`
   mutation submitRepository {
@@ -71,7 +71,7 @@ Most mutations will require arguments in the form of query variables, and you ma
 import { Component } from '@angular/core';
 
 import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client/common';
 
 const submitRepository = gql`
   mutation submitRepository($repoFullName: String!) {
@@ -107,7 +107,7 @@ However, typically you'd want to keep the concern of understanding the mutation'
 ```ts
 import {Component, Injectable} from '@angular/core';
 import {Apollo} from 'apollo-angular';
-import gql from 'graphql-tag';
+import {gql} from '@apollo/client/common';
 
 @Injectable()
 class SubmitRepositoryService {
@@ -151,7 +151,7 @@ class NewEntryComponent {
 
 ## Optimistic UI
 
-Sometimes your client code can easily predict the result of the mutation, if it succeeds, even before the server responds with the result. For instance, in GitHunt, when a user comments on a repository, we want to show the new comment in context immediately, without waiting on the latency of a round trip to the server, giving the user the experience of a snappy UI. This is what we call [Optimistic UI](http://info.meteor.com/blog/optimistic-ui-with-meteor-latency-compensation). This is possible if the client can predict an *Optimistic Response* for the mutation.
+Sometimes your client code can easily predict the result of the mutation, if it succeeds, even before the server responds with the result. For instance, in GitHunt, when a user comments on a repository, we want to show the new comment in context immediately, without waiting on the latency of a round trip to the server, giving the user the experience of a snappy UI. This is what we call [Optimistic UI](http://info.meteor.com/blog/optimistic-ui-with-meteor-latency-compensation). This is possible if the client can predict an _Optimistic Response_ for the mutation.
 
 Apollo Client gives you a way to specify the `optimisticResponse` option, that will be used to update active queries immediately, in the same way that the server's mutation response will. Once the actual mutation response returns, the optimistic part will be thrown away and replaced with the real result.
 
@@ -159,7 +159,7 @@ Apollo Client gives you a way to specify the `optimisticResponse` option, that w
 import { Component } from '@angular/core';
 
 import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client/common';
 
 const submitComment = gql`
   mutation submitComment($repoFullName: String!, $commentContent: String!) {
@@ -200,9 +200,9 @@ class CommentPageComponent {
 
 For the example above, it is easy to construct an optimistic response, since we know the shape of the new comment and can approximately predict the created date. The optimistic response doesn't have to be exactly correct because it will always will be replaced with the real result from the server, but it should be close enough to make users feel like there is no delay.
 
-> As this comment is *new* and not visible in the UI before the mutation, it won't appear automatically on the screen as a result of the mutation. You can use [`updateQueries`][] to make it appear in this case (and this is what we do in GitHunt).
+> As this comment is _new_ and not visible in the UI before the mutation, it won't appear automatically on the screen as a result of the mutation. You can use [`updateQueries`][] to make it appear in this case (and this is what we do in GitHunt).
 
-[`updateQueries`]: /features/cache-updates/#updatequeries
+[`updatequeries`]: /features/cache-updates/#updatequeries
 
 ## Designing mutation results
 

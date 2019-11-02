@@ -23,6 +23,7 @@ describe('ng-add', () => {
       .runSchematicAsync('ng-add', {}, appTree)
       .toPromise();
     const packageJsonPath = '/package.json';
+
     expect(tree.files).toContain(packageJsonPath);
 
     const packageJson = JSON.parse(getFileContent(tree, packageJsonPath));

@@ -7,19 +7,17 @@ import {
   FetchMoreOptions,
   SubscribeToMoreOptions,
   UpdateQueryOptions,
-  ApolloCurrentResult,
-} from 'apollo-client';
+  ApolloCurrentQueryResult,
+} from '@apollo/client/core';
 import {Observable, from} from 'rxjs';
+import {startWith} from 'rxjs/operators';
 
 import {wrapWithZone, fixObservable} from './utils';
 import {WatchQueryOptions, R} from './types';
-import {startWith} from 'rxjs/operators';
 
 export class QueryRef<T, V = R> {
   public valueChanges: Observable<ApolloQueryResult<T>>;
   public options: ObservableQuery<T, V>['options'];
-  public queryId: ObservableQuery<T, V>['queryId'];
-  public variables: V;
 
   constructor(
     private obsQuery: ObservableQuery<T, V>,
@@ -38,17 +36,30 @@ export class QueryRef<T, V = R> {
           }),
         )
       : wrapped;
-    this.queryId = this.obsQuery.queryId;
   }
 
   // ObservableQuery's methods
+
+  public get queryId(): ObservableQuery<T, V>['queryId'] {
+    return this.obsQuery.queryId;
+  }
+  public get queryName(): ObservableQuery<T, V>['queryName'] {
+    return this.obsQuery.queryName;
+  }
+  public get variables(): V {
+    return this.obsQuery.variables;
+  }
 
   public result(): Promise<ApolloQueryResult<T>> {
     return this.obsQuery.result();
   }
 
-  public currentResult(): ApolloCurrentResult<T> {
-    return this.obsQuery.currentResult();
+  public getCurrentResult(): ApolloCurrentQueryResult<T> {
+    return this.obsQuery.getCurrentResult();
+  }
+
+  public isDifferentFromLastResult(newResult: ApolloQueryResult<T>): boolean {
+    return this.obsQuery.isDifferentFromLastResult(newResult);
   }
 
   public getLastResult(): ApolloQueryResult<T> {
@@ -76,7 +87,7 @@ export class QueryRef<T, V = R> {
   public subscribeToMore<MT = any, MV = R>(
     options: SubscribeToMoreOptions<T, MV, MT>,
   ): () => void {
-    // XXX: there's a bug in apollo-client typings
+    // XXX: there's a bug in @apollo/client typings
     // it should not inherit types from ObservableQuery
     return this.obsQuery.subscribeToMore(options as any);
   }

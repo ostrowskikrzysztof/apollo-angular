@@ -11,7 +11,7 @@ With the data prefetched, the comments page renders immediately, and the user of
 
 ```ts
 import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client/common';
 
 @Component({
   template: `

@@ -7,8 +7,8 @@ import {
   SubscriptionOptions,
   ApolloClientOptions,
   ObservableQuery,
-} from 'apollo-client';
-import {FetchResult} from 'apollo-link';
+  FetchResult,
+} from '@apollo/client/core';
 import {Observable, from} from 'rxjs';
 
 import {QueryRef} from './QueryRef';
@@ -65,7 +65,9 @@ export class ApolloBase<TCacheShape = any> {
     extra?: ExtraSubscriptionOptions,
   ): Observable<FetchResult<T>> {
     const obs = from(
-      fixObservable(this.ensureClient.subscribe<T, V>({...options})),
+      fixObservable(
+        this.ensureClient.subscribe<T, V>({...options}),
+      ),
     );
 
     return extra && extra.useZone !== true

@@ -7,7 +7,7 @@
   "main": "build/bundles/ngApolloLinkHttpBatch.umd.js",
   "module": "build/fesm5/ngApolloLinkHttpBatch.js",
   "typings": "build/ngApolloLinkHttpBatch.d.ts",
-  "version": "1.7.0",
+  "version": "2.0.0-alpha.0",
   "repository": "https://github.com/apollographql/apollo-angular/tree/master/packages/apollo-angular-link-http-batch",
   "keywords": [
     "apollo",
@@ -18,17 +18,17 @@
     "build": "ng-packagr -p ng-package.js",
     "test": "yarn test-only",
     "test-only": "jest --config jest.config.js",
-    "deploy": "yarn build && npm publish build"
+    "deploy": "yarn build && npm publish build --registry http://localhost:4873"
   },
   "peerDependencies": {
-    "@angular/common": "^6.0.0 || ^7.0.0 || ^8.0.0",
-    "@angular/core": "^6.0.0 || ^7.0.0 || ^8.0.0",
+    "@angular/common": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
+    "@angular/core": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
+    "@apollo/client": "^3.0.0-beta.12",
     "graphql": ">=0.11.0 <0.14.0 || ^14.0.0"
   },
   "dependencies": {
-    "apollo-angular-link-http-common": "~1.8.0",
-    "apollo-link": "^1.0.0",
-    "apollo-link-batch": "^1.1.2"
+    "apollo-angular-link-http-common": "~2.0.0-alpha.0",
+    "apollo-link-batch": "^2.0.0-beta.0"
   },
   "devDependencies": {
     "@angular/animations": "8.2.13",
@@ -39,12 +39,9 @@
     "@angular/platform-browser": "8.2.13",
     "@angular/platform-browser-dynamic": "8.2.13",
     "@angular/platform-server": "8.2.13",
-    "@types/graphql": "14.5.0",
+    "@apollo/client": "3.0.0-beta.12",
     "@types/jest": "24.0.23",
-    "apollo-cache-inmemory": "1.6.3",
-    "apollo-client": "2.6.4",
     "graphql": "14.5.8",
-    "graphql-tag": "2.10.1",
     "jest": "24.9.0",
     "jest-zone-patch": "0.0.10",
     "ng-packagr": "5.7.1",

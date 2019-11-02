@@ -69,7 +69,7 @@ Options, this one will be used.
 ```js
 import {HttpLinkModule, HttpLink} from 'apollo-link-http';
 import {ApolloModule, Apollo} from 'apollo-angular';
-import {InMemoryCache} from 'apollo-cache-inmemory';
+import {InMemoryCache} from '@apollo/client/core';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModules({
@@ -130,7 +130,7 @@ apollo.query({
 ### Middleware
 
 ```ts
-import {ApolloLink} from 'apollo-link';
+import {ApolloLink} from '@apollo/client/common';
 import {HttpLink} from 'apollo-angular-link-http';
 
 class AppModule {
@@ -154,7 +154,7 @@ class AppModule {
 ### Afterware (error)
 
 ```js
-import {ApolloLink} from 'apollo-link';
+import {ApolloLink} from '@apollo/link';
 import {HttpLink} from 'apollo-angular-link-http';
 import {onError} from 'apollo-link-error';
 

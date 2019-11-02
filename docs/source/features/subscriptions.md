@@ -80,7 +80,7 @@ const wsClient = new WebSocketLink({
 
 ```ts
 import { Apollo } from 'apollo-angular';
-import { split } from 'apollo-link';
+import { split } from '@apollo/client/common';
 import { HttpLink } from 'apollo-angular-link-http';
 import { WebSocketLink } from 'apollo-link-ws';
 import { getMainDefinition } from 'apollo-utilities';
@@ -175,7 +175,7 @@ Here is a regular query:
 ```ts
 import { Apollo, QueryRef } from 'apollo-angular';
 import { Observable } from 'rxjs';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client/common';
 
 const COMMENT_QUERY = gql`
   query Comment($repoName: String!) {
@@ -283,6 +283,7 @@ const wsLink = new WebSocketLink({
     connectionParams: {
         authToken: user.authToken,
     },
+  },
 });
 ```
 

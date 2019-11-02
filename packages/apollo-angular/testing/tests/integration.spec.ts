@@ -3,15 +3,13 @@ import {Apollo} from 'apollo-angular';
 import {TestBed, inject} from '@angular/core/testing';
 import {addTypenameToDocument} from 'apollo-utilities';
 import {print} from 'graphql';
-
-import gql from 'graphql-tag';
+import {gql, InMemoryCache} from '@apollo/client/core';
 
 import {
   ApolloTestingModule,
   ApolloTestingController,
   APOLLO_TESTING_CACHE,
 } from '../src';
-import {InMemoryCache} from 'apollo-cache-inmemory';
 
 describe('Integration', () => {
   let apollo: Apollo;

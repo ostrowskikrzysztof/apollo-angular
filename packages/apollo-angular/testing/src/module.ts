@@ -1,7 +1,10 @@
 import {ApolloModule, Apollo} from 'apollo-angular';
-import {ApolloLink, Operation as LinkOperation} from 'apollo-link';
-import {InMemoryCache} from 'apollo-cache-inmemory';
-import {ApolloCache} from 'apollo-cache';
+import {
+  ApolloLink,
+  Operation as LinkOperation,
+  ApolloCache,
+} from '@apollo/client/core';
+import {InMemoryCache} from '@apollo/client/core';
 import {
   NgModule,
   InjectionToken,

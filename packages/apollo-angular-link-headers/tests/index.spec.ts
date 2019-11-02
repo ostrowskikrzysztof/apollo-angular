@@ -1,7 +1,5 @@
-import {ApolloLink, execute, Observable} from 'apollo-link';
+import {ApolloLink, execute, Observable, gql} from '@apollo/client/core';
 import {HttpHeaders} from '@angular/common/http';
-
-import gql from 'graphql-tag';
 
 import {httpHeaders} from '../src';
 
@@ -37,7 +35,7 @@ describe('httpHeaders', () => {
           Authorization: 'Bearer Foo',
         },
       },
-    }).subscribe(result => {
+    }).subscribe((result: any) => {
       expect(result.data).toEqual(data);
       done();
     });
@@ -58,7 +56,7 @@ describe('httpHeaders', () => {
 
     execute(link, {
       query,
-    }).subscribe(result => {
+    }).subscribe((result: any) => {
       expect(result.data).toEqual(data);
       done();
     });

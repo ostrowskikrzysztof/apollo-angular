@@ -3,9 +3,7 @@ import {
   ApolloLink,
   FetchResult,
   Observable,
-  // Observer,
-} from 'apollo-link';
-
+} from '@apollo/client/core';
 import {print} from 'graphql';
 
 export interface MockedResponse {
@@ -53,7 +51,7 @@ export class MockLink extends ApolloLink {
       );
     }
 
-    return new Observable<FetchResult>(observer => {
+    return new Observable<FetchResult>((observer: any) => {
       let timer = setTimeout(
         () => {
           if (error) {

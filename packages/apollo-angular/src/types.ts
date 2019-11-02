@@ -4,7 +4,7 @@ import {
   MutationOptions as CoreMutationOptions,
   SubscriptionOptions as CoreSubscriptionOptions,
   ApolloClientOptions,
-} from 'apollo-client';
+} from '@apollo/client/core';
 import {ExecutionResult} from 'graphql';
 
 export type R = {

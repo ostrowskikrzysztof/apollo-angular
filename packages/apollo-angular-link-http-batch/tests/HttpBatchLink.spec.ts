@@ -1,14 +1,12 @@
 import {setupAngular} from './_setup';
 
-import gql from 'graphql-tag';
-
 import {TestBed, inject} from '@angular/core/testing';
 import {HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import {execute, ApolloLink, Operation} from 'apollo-link';
+import {execute, gql, ApolloLink, Operation} from '@apollo/client/core';
 
 import {HttpBatchLink} from '../src/HttpBatchLink';
 

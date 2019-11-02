@@ -5,20 +5,12 @@ description: A guide to customizing and directly accessing your Apollo cache
 
 ## InMemoryCache
 
-`apollo-cache-inmemory` is the default cache implementation for Apollo Client 2.0. `InMemoryCache` is a normalized data store that supports all of Apollo Client 1.0's features without the dependency on Redux.
+`InMemoryCache` is the default cache implementation for Apollo Client 3.0.
 
-In some instances, you may need to manipulate the cache directly, such as updating the store after a mutation. We'll cover some common use cases [here](#recipes).
-
-### Installation
-
-```bash
-npm install apollo-cache-inmemory --save
-```
-
-After installing the package, you'll want to initialize the cache constructor. Then, you can pass in your newly created cache to ApolloClient.
+In some instances, you may need to manipulate the cache directly, such as updating the store after a mutation. We'll cover some common use cases [here](#recipes).s
 
 ```ts
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import { InMemoryCache } from '@apollo/client/common';
 import { Apollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular-link-http';
 
