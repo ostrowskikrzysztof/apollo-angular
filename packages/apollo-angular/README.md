@@ -42,7 +42,7 @@ Finally, to demonstrate the power of Apollo Angular in building interactive UIs 
 
 ```ts
 import {Component, OnInit} from '@angular/core';
-import {gql} from '@apollo/client/common';
+import {gql} from '@apollo/client/core';
 import {Apollo} from 'apollo-angular';
 
 const GET_DOGS = gql`
