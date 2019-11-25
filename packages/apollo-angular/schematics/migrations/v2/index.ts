@@ -85,7 +85,7 @@ export async function migrateImports(tree: Tree) {
           .substr(1, nodeText.length - 2);
 
         if (
-          ['apollo-cache-inmemory', 'apollo-client', 'apollo-link'].includes(
+          ['apollo-cache-inmemory', 'apollo-client', 'apollo-link', 'apollo-angular'].includes(
             modulePath,
           )
         ) {
@@ -127,7 +127,7 @@ export async function migrateImports(tree: Tree) {
         .join(', ');
       recorder.insertLeft(
         sourceFile.getStart(),
-        `import {${props}} from '@apollo/client/core';\n`,
+        `import {${props}} from 'apollo-angular';\n`,
       );
       tree.commitUpdate(recorder);
     }

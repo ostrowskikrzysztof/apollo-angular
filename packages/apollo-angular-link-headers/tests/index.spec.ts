@@ -1,4 +1,4 @@
-import {ApolloLink, execute, Observable, gql} from '@apollo/client/core';
+import {ApolloLink, execute, Observable, gql} from 'apollo-angular';
 import {HttpHeaders} from '@angular/common/http';
 
 import {httpHeaders} from '../src';

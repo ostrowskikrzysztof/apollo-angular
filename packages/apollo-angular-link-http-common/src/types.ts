@@ -1,5 +1,5 @@
 import {HttpHeaders} from '@angular/common/http';
-import {Operation} from '@apollo/client/core';
+import {Operation} from 'apollo-angular';
 
 export type Headers = HttpHeaders | {[header: string]: string | string[]};
 

@@ -5,7 +5,7 @@ import {
   Observable as LinkObservable,
   Operation,
   FetchResult,
-} from '@apollo/client/core';
+} from 'apollo-angular';
 import {print} from 'graphql';
 import {
   fetch,

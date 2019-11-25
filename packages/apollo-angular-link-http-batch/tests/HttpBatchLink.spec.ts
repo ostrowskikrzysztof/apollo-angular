@@ -6,7 +6,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import {execute, gql, ApolloLink, Operation} from '@apollo/client/core';
+import {execute, gql, ApolloLink, Operation} from 'apollo-angular';
 
 import {HttpBatchLink} from '../src/HttpBatchLink';
 

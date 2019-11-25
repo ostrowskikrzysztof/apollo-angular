@@ -1,3 +1,4 @@
+export * from '@apollo/client/core';
 export {Apollo, ApolloBase} from './Apollo';
 export {QueryRef} from './QueryRef';
 export {Query} from './Query';

@@ -26,6 +26,7 @@ describe('Migration: Apollo Angular V2', () => {
         import { InMemoryCache } from 'apollo-cache-inmemory';
         import { ApolloClient } from 'apollo-client';
         import { ApolloLink } from 'apollo-link';
+        import { ApolloModule } from 'apollo-angular';
         import ApolloClient from 'apollo-client';
         import gql from 'graphql-tag';
       `,
@@ -35,7 +36,7 @@ describe('Migration: Apollo Angular V2', () => {
       .toPromise();
 
     expect(tree.readContent('file.ts').trim()).toEqual(
-      `import {InMemoryCache, ApolloClient, ApolloLink, gql} from '@apollo/client/core';`,
+      `import {InMemoryCache, ApolloClient, ApolloLink, ApolloModule, gql} from 'apollo-angular';`,
     );
   });
 
@@ -55,7 +56,7 @@ describe('Migration: Apollo Angular V2', () => {
       .toPromise();
 
     expect(tree.readContent('file.ts').trim()).toEqual(
-      `import {InMemoryCache, ApolloClient, ApolloLink, gql as graphql} from '@apollo/client/core';`,
+      `import {InMemoryCache, ApolloClient, ApolloLink, gql as graphql} from 'apollo-angular';`,
     );
   });
 

@@ -31,8 +31,8 @@ export default function install(options: Schema): Rule {
 
 export const dependenciesMap: Record<string, string> = {
   '@apollo/client': '^3.0.0-beta.12',
-  'apollo-angular': '^2.0.0-alpha.0',
-  'apollo-angular-link-http': '^2.0.0-alpha.0',
+  'apollo-angular': '^2.0.0-alpha.1',
+  'apollo-angular-link-http': '^2.0.0-alpha1',
   graphql: '^14.5.0',
 };
 

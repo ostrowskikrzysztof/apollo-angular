@@ -1,4 +1,4 @@
-import {Operation} from '@apollo/client/core';
+import {Operation} from 'apollo-angular';
 import {Options} from 'apollo-angular-link-http-common';
 
 export type BatchOptions = {

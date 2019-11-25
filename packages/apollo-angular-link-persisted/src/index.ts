@@ -1,5 +1,5 @@
 import {DocumentNode} from 'graphql';
-import {ApolloLink} from '@apollo/client/core';
+import {ApolloLink} from 'apollo-angular';
 import {setContext} from 'apollo-link-context';
 import {
   createPersistedQueryLink as _createPersistedQueryLink,
