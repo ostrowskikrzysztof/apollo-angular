@@ -2,7 +2,7 @@ module.exports = {
   umdModuleIds: {
     '@angular/core': 'ng.core',
     '@angular/common/http': 'ng.common.http',
-    '@apollo/client/common': 'apollo',
+    '@apollo/client/core': 'apollo',
     'apollo-angular': 'ngApollo',
     'apollo-angular-link-http': 'ngApolloLinkHttp',
     'apollo-angular-link-http-common': 'ngApolloLinkHttpCommon',
