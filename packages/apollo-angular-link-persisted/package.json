@@ -21,8 +21,8 @@
     "deploy": "yarn build && npm publish build --tag next"
   },
   "peerDependencies": {
-    "@apollo/client": "^3.0.0-beta.12",
-    "apollo-angular": "^2.0.0-alpha.2"
+    "@apollo/client": "^3.0.0-beta.14",
+    "apollo-angular": "^2.0.0-alpha.3"
   },
   "dependencies": {
     "apollo-link-context": "^2.0.0-beta.0",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@types/jest": "24.0.23",
-    "apollo-angular": "2.0.0-alpha.2",
+    "apollo-angular": "2.0.0-alpha.3",
     "graphql": "14.5.8",
     "jest": "24.9.0",
     "ng-packagr": "5.7.1",

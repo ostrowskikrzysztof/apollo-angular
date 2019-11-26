@@ -29,6 +29,6 @@
     "typescript": "3.5.3"
   },
   "resolutions": {
-    "@apollo/client": "3.0.0-beta.12"
+    "@apollo/client": "3.0.0-beta.14"
   }
 }

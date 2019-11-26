@@ -22,15 +22,15 @@
   },
   "peerDependencies": {
     "@angular/common": "^6.0.0 || ^7.0.0 || ^8.0.0",
-    "@apollo/client": "^3.0.0-beta.12",
-    "apollo-angular": "^2.0.0-alpha.2"
+    "@apollo/client": "^3.0.0-beta.14",
+    "apollo-angular": "^2.0.0-alpha.3"
   },
   "devDependencies": {
     "@angular/common": "8.2.14",
     "@angular/core": "8.2.14",
-    "@apollo/client": "3.0.0-beta.12",
+    "@apollo/client": "3.0.0-beta.14",
     "@types/jest": "24.0.23",
-    "apollo-angular": "2.0.0-alpha.2",
+    "apollo-angular": "2.0.0-alpha.3",
     "graphql": "14.5.8",
     "jest": "24.9.0",
     "ng-packagr": "5.7.1",
