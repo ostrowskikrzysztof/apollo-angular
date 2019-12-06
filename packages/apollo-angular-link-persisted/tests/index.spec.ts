@@ -1,4 +1,10 @@
-import {gql, ApolloLink, execute, Observable, Operation} from 'apollo-angular';
+import {
+  gql,
+  ApolloLink,
+  execute,
+  Observable,
+  Operation,
+} from '@apollo/client/core';
 
 import {createPersistedQueryLink} from '../src';
 

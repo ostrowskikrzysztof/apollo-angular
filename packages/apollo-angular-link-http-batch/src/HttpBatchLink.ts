@@ -5,7 +5,7 @@ import {
   Observable as LinkObservable,
   Operation,
   FetchResult,
-} from 'apollo-angular';
+} from '@apollo/client/core';
 import {BatchLink, BatchHandler} from 'apollo-link-batch';
 import {print} from 'graphql';
 import {

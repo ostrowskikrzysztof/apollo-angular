@@ -22,7 +22,7 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import {BrowserModule} from '@angular/platform-browser';
-import {gql, execute} from 'apollo-angular';
+import {gql, execute} from '@apollo/client/core';
 import {filter, first} from 'rxjs/operators';
 
 import {HttpLink} from '../src/HttpLink';

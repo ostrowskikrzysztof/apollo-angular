@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
-import {ApolloModule, APOLLO_OPTIONS, InMemoryCache} from 'apollo-angular';
+import {ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
+import {InMemoryCache} from '@apollo/client/core';
 import {HttpLinkModule, HttpLink} from 'apollo-angular-link-http';
 
 const uri = '<%= endpoint %>'; // <-- add the URL of the GraphQL server here

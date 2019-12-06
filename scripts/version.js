@@ -22,7 +22,7 @@ async function main() {
   );
 
   const js = readFile(schematics);
-  const R = new RegExp(`'${packageName}': '\\^(\\d+\\.\\d+\\.\\d+)`, 'g');
+  const R = new RegExp(`'${packageName}': '\\^((\\d+\\.\\d+\\.\\d+\\-[a-z]+\\.\\d+)|(\\d+\\.\\d+\\.\\d+))'`, 'g');
 
   writeFile(
     schematics,
@@ -47,6 +47,10 @@ function updatePkg(packageDir) {
 
   if (pkg.dependencies && pkg.dependencies[packageName]) {
     pkg.dependencies[packageName] = `~${packageVersion}`;
+  }
+
+  if (pkg.devDependencies && pkg.devDependencies[packageName]) {
+    pkg.devDependencies[packageName] = packageVersion;
   }
 
   writeJSON(filepath, pkg);

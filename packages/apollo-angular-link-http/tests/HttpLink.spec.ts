@@ -6,14 +6,8 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import {
-  ApolloModule,
-  Apollo,
-  InMemoryCache,
-  gql,
-  ApolloLink,
-  execute,
-} from 'apollo-angular';
+import {ApolloModule, Apollo} from 'apollo-angular';
+import {InMemoryCache, gql, ApolloLink, execute} from '@apollo/client/core';
 import {mergeMap} from 'rxjs/operators';
 
 import {HttpLink} from '../src/HttpLink';
