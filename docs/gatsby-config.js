@@ -11,6 +11,7 @@ module.exports = {
         subtitle: 'Apollo Angular',
         description: 'A guide to using the Apollo GraphQL Client with Angular',
         githubRepo: 'apollographql/apollo-angular',
+        defaultVersion: 1,
         sidebarCategories: {
           null: [
             'index',
