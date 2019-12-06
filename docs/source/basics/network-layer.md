@@ -110,7 +110,7 @@ The following examples shows how you'd create a middleware. In both examples, we
 ```js
 import { Apollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular-link-http';
-import { ApolloLink, concat } from '@apollo/client/common';
+import { ApolloLink, concat } from '@apollo/client/core';
 import { HttpHeaders } from '@angular/common/http';
 
 @NgModule({ ... })
@@ -145,7 +145,7 @@ The following example shows the use of multiple middlewares passed as an array:
 ```ts
 import { Apollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular-link-http';
-import { ApolloLink } from '@apollo/client/common';
+import { ApolloLink } from '@apollo/client/core';
 
 @NgModule({ ... })
 class AppModule {

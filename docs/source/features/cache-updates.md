@@ -32,7 +32,7 @@ By default, Apollo identifies objects based on two properties: The `__typename` 
 You can also specify a custom function to generate IDs from each object, and supply it as the `dataIdFromObject` in the [`InMemoryCache`](/basics/caching/#normalization) options, if you want to specify how Apollo will identify and de-duplicate the objects returned from the server.
 
 ```ts
-import { InMemoryCache } from '@apollo/client/common';
+import { InMemoryCache } from '@apollo/client/core';
 
 // If your database has unique IDs across all types of objects, you can use
 // a very simple function!
@@ -45,7 +45,7 @@ These IDs allow Apollo Client to reactively tell all queries that fetched a part
 
 If you want to get the dataIdFromObjectFunction (for instance when using the [`readFragment` function](/basics/caching/#readfragment)), you can import it from the InMemoryCache package;
 ```js
-import { defaultDataIdFromObject } from '@apollo/client/common';
+import { defaultDataIdFromObject } from '@apollo/client/core';
 const person = {
   __typename: 'Person',
   id: '1234',
@@ -385,7 +385,7 @@ query DetailView {
 We know that the data is most likely already in the client cache, but because it's requested with a different query, Apollo Client doesn't know that. In order to tell Apollo Client where to look for the data, we can define custom resolvers:
 
 ```ts
-import { InMemoryCache } from '@apollo/client/common';
+import { InMemoryCache } from '@apollo/client/core';
 
 const cache = new InMemoryCache({
   cacheRedirects: {

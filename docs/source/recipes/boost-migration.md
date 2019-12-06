@@ -57,7 +57,7 @@ To complete the process, you'll need to manually attach your `cache` and `link` 
 
 ```ts
 import {ApolloModule, Apollo} from 'apollo-angular';
-import {InMemoryCache, ApolloLink} from '@apollo/client/common';
+import {InMemoryCache, ApolloLink} from '@apollo/client/core';
 import {HttpLinkModule, HttpLink} from 'apollo-angular-link-http';
 import {onError} from 'apollo-link-error';
 
@@ -165,7 +165,7 @@ Similar as in clientState, you use the config in `apollo-link-error`.
 
 ### cacheRedirects
 
-Whatever you have here, just pass it to `@apollo/client/common`.
+Whatever you have here, just pass it to `@apollo/client/core`.
 
 ## Summary
 

@@ -4,7 +4,7 @@ title: Static Typing
 
 As your application grows, you may find it helpful to include a type system to
 assist in development. Apollo supports type definitions for TypeScript system.
-Both `@apollo/client/common` and `apollo-angular` ship with definitions in their npm
+Both `@apollo/client/core` and `apollo-angular` ship with definitions in their npm
 packages, so installation should be done for you after the libraries are
 included in your project.
 
@@ -22,7 +22,7 @@ types for an operation using TypeScript:
 
 ```ts
 import { Apollo } from 'apollo-angular';
-import gql from '@apollo/client/common';
+import gql from '@apollo/client/core';
 
 const HERO_QUERY = gql`
   query GetCharacter($episode: Episode!) {
@@ -77,7 +77,7 @@ Here is an example setting the type of variables:
 
 ```javascript
 import { Apollo } from 'apollo-angular';
-import { gql } from '@apollo/client/common';
+import { gql } from '@apollo/client/core';
 
 const HERO_QUERY = gql`
   query GetCharacter($episode: Episode!) {

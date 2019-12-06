@@ -25,7 +25,7 @@ the `Profile` component:
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo } from 'apollo-angular';
-import { gql } from '@apollo/client/common';
+import { gql } from '@apollo/client/core';
 
 // We use the gql tag to parse our query string into a query document
 const CurrentUserForProfile = gql`
@@ -179,7 +179,7 @@ of the property you want to get from `data`.
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
-import { gql } from '@apollo/client/common';
+import { gql } from '@apollo/client/core';
 
 const FeedQuery = gql`
   query Feed {
@@ -237,7 +237,7 @@ import {Component, OnInit} from '@angular/core';
 import {Apollo} from 'apollo-angular';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {gql} from '@apollo/client/common';
+import {gql} from '@apollo/client/core';
 
 const FeedQuery = gql`
   query Feed {

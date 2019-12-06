@@ -130,7 +130,7 @@ apollo.query({
 ### Middleware
 
 ```ts
-import {ApolloLink} from '@apollo/client/common';
+import {ApolloLink} from '@apollo/client/core';
 import {HttpLink} from 'apollo-angular-link-http';
 
 class AppModule {

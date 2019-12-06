@@ -10,7 +10,7 @@ description: A guide to customizing and directly accessing your Apollo cache
 In some instances, you may need to manipulate the cache directly, such as updating the store after a mutation. We'll cover some common use cases [here](#recipes).s
 
 ```ts
-import { InMemoryCache } from '@apollo/client/common';
+import { InMemoryCache } from '@apollo/client/core';
 import { Apollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular-link-http';
 

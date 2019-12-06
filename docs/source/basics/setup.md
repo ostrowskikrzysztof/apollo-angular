@@ -63,7 +63,7 @@ In our `app.module.ts` file use `ApolloModule` and `APOLLO_OPTIONS` token to con
 import { HttpClientModule } from "@angular/common/http";
 import { ApolloModule, APOLLO_OPTIONS } from "apollo-angular";
 import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
-import { InMemoryCache } from "@apollo/client/common";
+import { InMemoryCache } from "@apollo/client/core";
 
 @NgModule({
   imports: [
@@ -91,7 +91,7 @@ export class AppModule {}
 Take a closer look what we did there:
 
 1. With `apollo-angular-link-http` and `HttpLink` service we connect our client to an external GraphQL Server
-1. Thanks to `@apollo/client/common` and `InMemoryCache` we have a place to store data in
+1. Thanks to `@apollo/client/core` and `InMemoryCache` we have a place to store data in
 1. `APOLLO_OPTIONS` provides options to Apollo Client
 
 Apollo's HttpLink requires `HttpClient` so that's why we also used `HttpClientModule` from `@angular/common/http`.
@@ -113,7 +113,7 @@ Once all is hooked up, you're ready to start requesting data with `Apollo` servi
 
 `Apollo` is an Angular service exported from `apollo-angular` to share GraphQL data with your UI.
 
-First, pass your GraphQL query wrapped in the `gql` function (from `@apollo/client/common`) to the `query` property in the `Apollo.watchQuery` method, in your component.
+First, pass your GraphQL query wrapped in the `gql` function (from `@apollo/client/core`) to the `query` property in the `Apollo.watchQuery` method, in your component.
 The `Apollo` service is a regular angular service that you familiar with, data are being streamed through Observables. Same here.
 
 The `watchQuery` method returns a `QueryRef` object which has the `valueChanges`
@@ -133,7 +133,7 @@ If you want to see how easy it is to fetch data from a GraphQL server with Apoll
 ```ts
 import {Component, OnInit} from '@angular/core';
 import {Apollo} from 'apollo-angular';
-import {gql} from '@apollo/client/common';
+import {gql} from '@apollo/client/core';
 
 @Component({
   selector: 'exchange-rates',

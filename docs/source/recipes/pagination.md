@@ -21,7 +21,7 @@ Here is an example with numbered pages taken from [GitHunt](https://github.com/a
 
 ```ts
 import { Apollo, QueryRef } from 'apollo-angular';
-import { gql } from '@apollo/client/common';
+import { gql } from '@apollo/client/core';
 
 const feedQuery = gql`
   query Feed($type: FeedType!, $offset: Int, $limit: Int) {
